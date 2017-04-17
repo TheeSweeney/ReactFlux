@@ -1,14 +1,14 @@
+var React = require('react');
 var ReactRouter = require('react-router');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 
+var Main = require('./components/main')
 
-var routes = (
+
+module.exports = (
   <Router>
-    <Route path="/" component={Hello}>
-      <Route path="1" component={Child1}>
-        <Route path="2" component={Child2} />
-      </Route>
+    <Route path="/" component={Main}>
     </Route>
   </Router>
 )
