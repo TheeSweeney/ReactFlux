@@ -1,5 +1,5 @@
 var config = {}
 
-config.API_KEY = "test";
+config.API_KEY = "";
 
 module.exports = config;
