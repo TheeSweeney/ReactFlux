@@ -1,7 +1,12 @@
 var React = require('react');
 var TopicStore = require('../stores/topicStore');
+var Refulx = require('reflux');
 
 module.exports = React.createClass({
+  mixins: [
+    Reflux.listenTo(TopicStore, 'onChange')
+  ],
+
   getInitialState: function() {
     return {
       topics: ['']
@@ -9,14 +14,7 @@ module.exports = React.createClass({
   },
 
   componentWillMount: function() {
-    TopicStore.getTopics()
-      .then(function(){
-        //successfully fetched topics
-        //topics available on TopicStore.topics
-        this.setState({
-          topics.TopicStore.topics
-        })
-      }.bind(this));
+    TopicStore.getTopics();
   },
 
   render: function() {
@@ -36,5 +34,9 @@ module.exports = React.createClass({
         </li>
       )
     })
+  },
+
+  onChange: function(event, topics) {
+    this.setState({topics: topics});
   }
 })
