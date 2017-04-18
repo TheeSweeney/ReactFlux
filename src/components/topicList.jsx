@@ -4,7 +4,7 @@ var Api = require('../utils/api');
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      topics: ['butt']
+      topics: ['']
     }
   },
 
